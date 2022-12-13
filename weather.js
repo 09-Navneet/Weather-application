@@ -7,7 +7,7 @@
    
      fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${ apiKey}`).then(i=>i.json()).then(i=>{
 
-      fetch(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${apiKey}`).then(x=>x.json()).then(x=>{
+      fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${apiKey}`).then(x=>x.json()).then(x=>{
         let AQI=x.list[0].main.aqi;
         const index=["Good","Fair","Moderate","Poor","Very Poor"]
         if(AQI==1){
@@ -49,11 +49,11 @@
             else if(sky=="Clouds"){
                 document.querySelector(".icon").innerHTML="&#9729;";
             }
-            else if(sky=="Smoke" || sky=="Fog"){
+            else if(sky=="Smoke" || sky=="Fog" || sky=="Haze"){
                 document.querySelector(".icon").innerHTML="&#x1F32B;";
             }
             else if(sky=="Snow"){
-                document.querySelector(".icon").innerHTML="	&#x2603;";
+                document.querySelector(".icon").innerHTML="&#x2603;";
             }
             else{
                 document.querySelector(".icon").innerHTML="&#9728;";
@@ -128,8 +128,11 @@
             else if(sky=="Clouds"){
                 document.querySelector(".icona").innerHTML="&#9729;";
             }
-            else if(sky=="Smoke" || sky=="Fog"){
+            else if(sky=="Smoke" || sky=="Fog" || sky=="Haze"){
                 document.querySelector(".icona").innerHTML="&#x1F32B;";
+            }
+            else if(sky=="Snow"){
+                document.querySelector(".icona").innerHTML="&#x26C4;";
             }
             else{
                 document.querySelector(".icona").innerHTML="&#9728;";

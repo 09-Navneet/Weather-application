@@ -20,8 +20,8 @@ body{
     font-size: 3.5rem;
 }
 .wrap{
-    background: #047a8f;
-    color: white;
+    background: #2790a3;
+    color: #fff;
     font-size:medium;
     flex: 1 0 40%;
     padding: 20px;
@@ -66,10 +66,11 @@ h2{
  }
  .min, .max, .wind, .feelslike, .pollution, .pollutiona{
    
-    background: #0ba3be;
+    background: #126677;
     opacity: 0.9;
     width: 160px;
     text-align: left;
+    color: #fff;
     justify-items: center;
     padding: 20px;
     margin: 40px 0;
@@ -89,7 +90,7 @@ h2{
 }
 
  button{
-    background: #0ba3be;
+    background: #0999b2;
     border-radius: 2px;
     border: 1px solid #9dbccb;
     color: #fff;
