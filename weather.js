@@ -53,7 +53,7 @@
                 document.querySelector(".icon").innerHTML="&#x1F32B;";
             }
             else if(sky=="Snow"){
-                document.querySelector(".icon").innerHTML="&#x2603;";
+                document.querySelector(".icon").innerHTML="&#x26C4;";
             }
             else{
                 document.querySelector(".icon").innerHTML="&#9728;";
@@ -85,7 +85,7 @@
                  let lati=i.coord.lat;
                  let long=i.coord.lon;
 
-                fetch(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${lati}&lon=${long}&appid=${apiKey}`).then(J=>J.json()).then(J=>{
+                fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lati}&lon=${long}&appid=${apiKey}`).then(J=>J.json()).then(J=>{
                     let AQI=J.list[0].main.aqi;
                     const index=["Good","Fair","Moderate","Poor","Very Poor"]
                     if(AQI==1){
