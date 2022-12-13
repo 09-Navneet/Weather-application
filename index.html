@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODAY'S WEATHER</title>
+    <meta name="description" content="This is a weather detection as well as pollution check application using fetch API.">
+   <link rel="icon" href="logo.png">
+    <link rel="stylesheet" href="weather.css">
+</head>
+<body>
+    <div class="container" >
+        <div class="wrap">
+            <h1>Today's Weather</h1>
+            <div class="location"></div>
+            <span class="icon">&#127785;</span>
+            <p class="local"></p>
+            <p class="sky">clear</p>
+            <div class="flex">
+                <div class="flex_1">
+                    <div class="min">
+                        <h2>Min Temp</h2>
+                        <p class="mintemp"></p>
+                    </div>
+                    <div class="max">
+                        <h2>Max Temp</h2>
+                        <p class="maxtemp"></p>
+                    </div>
+                </div>
+                <div class="flex_2">
+                    <div class="feelslike">
+                        <h2>Feels Like</h2>
+                        <p class="feels"></p>
+                    </div> 
+                    <div class="wind">
+                        <h2>Wind's Speed</h2>
+                        <p class="windspeed"></p>
+                    </div>
+                </div>  
+                <div class="pollution">
+                    <h2>Pollution Level</h2>
+                    <p class="pollutionindex"></p>
+                </div>
+            </div>
+        </div>
+        <div class="wrap 2">
+            <h1>Search By City Name</h1>
+            <form action="search" class="search">
+                <input type="text" id="city" placeholder="Enter City Name" required>
+                <button type="submit" class="submit" >Check</button> <br>
+                <span class="alert"></span>
+             </form>
+             <div class="result" hidden >
+                <div class="loc"></div>
+                <span class="icona"></span>
+                <p class="locala"></p>
+                <p class="skya">clear</p>
+                <div class="flex">
+                    <div class="flex_1">
+                        <div class="min">
+                            <h2>Min Temp</h2>
+                            <p class="mintempa"></p>
+                        </div>
+                        <div class="max">
+                            <h2>Max Temp</h2>
+                            <p class="maxtempa"></p>
+                        </div>
+                    </div>
+                    <div class="flex_2">
+                        <div class="feelslike">
+                            <h2>Feels Like</h2>
+                            <p class="feelsa"></p>
+                        </div>
+                         <div class="wind">
+                            <h2>Wind's Speed</h2>
+                            <p class="windspeeda"></p>
+                        </div>
+                    </div> 
+                    <div class="pollutiona">
+                        <h2>Pollution Level</h2>
+                        <p class="index"></p>
+                    </div>  
+                </div>
+             </div>
+            
+        </div>
+        
+        
+        
+    </div>
+    <script src="weather.js"></script>
+</body>
+</html>
