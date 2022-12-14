@@ -43,13 +43,16 @@
             var sky= i.weather[0].main;
             document.querySelector(".location").innerHTML=`&#9679; ${i.name}`;
            
-            if(sky=="rain"){
+            if(sky=="Rain"){
                 document.querySelector(".icon").innerHTML="&#9730;";
+            }
+            else if(sky=="Thunderstorm"){
+                document.querySelector(".icon").innerHTML="&#x26C8;";
             }
             else if(sky=="Clouds"){
                 document.querySelector(".icon").innerHTML="&#9729;";
             }
-            else if(sky=="Smoke" || sky=="Fog" || sky=="Haze"){
+            else if(sky=="Smoke" || sky=="Fog" || sky=="Haze" || sky=="Mist"){
                 document.querySelector(".icon").innerHTML="&#x1F32B;";
             }
             else if(sky=="Snow"){
@@ -81,11 +84,20 @@
 
             let apiKey="67abc2d5baf18d3c228318abf230a8e8";
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${ apiKey}`).then(i=>i.json()).then(i=>{
-        
+            if(i.cod=="404"){
+                document.querySelector(".alert").textContent="City Not Found";
+                document.querySelector(".result").style.display="none";
+
+            }
+            else{
+                document.querySelector(".result").style.display="block";
+
                  let lati=i.coord.lat;
                  let long=i.coord.lon;
+                
+              fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lati}&lon=${long}&appid=${apiKey}`).then(J=>J.json()).then(J=>{
+                    
 
-                fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lati}&lon=${long}&appid=${apiKey}`).then(J=>J.json()).then(J=>{
                     let AQI=J.list[0].main.aqi;
                     const index=["Good","Fair","Moderate","Poor","Very Poor"]
                     if(AQI==1){
@@ -116,19 +128,24 @@
                     }
                 })
     
-            document.querySelector(".alert").innerHTML="";
+            document.querySelector(".alert").textContent="";
+             console.clear();
+            
             
             document.querySelector(".result").removeAttribute("hidden");
             var sky= i.weather[0].main;
             document.querySelector(".loc").innerHTML=`&#9679; ${cityName}`;
            
-            if(sky=="rain"){
+            if(sky=="Rain"){
                 document.querySelector(".icona").innerHTML="&#9730;";
+            }
+            else if(sky=="Thunderstorm"){
+                document.querySelector(".icona").innerHTML="&#x26C8;";
             }
             else if(sky=="Clouds"){
                 document.querySelector(".icona").innerHTML="&#9729;";
             }
-            else if(sky=="Smoke" || sky=="Fog" || sky=="Haze"){
+            else if(sky=="Smoke" || sky=="Fog" || sky=="Haze" || sky=="Mist"){
                 document.querySelector(".icona").innerHTML="&#x1F32B;";
             }
             else if(sky=="Snow"){
@@ -148,7 +165,7 @@
             document.querySelector(".feelsa").innerHTML=`${Math.floor(i.main.feels_like-275)}&deg;C`;
 
             document.querySelector(".windspeeda").innerHTML=`${parseFloat(i.wind.speed)}`;
-       
+        }
          }) 
     }  
           }) 
@@ -156,6 +173,9 @@
 
     function error(x){
     console.log(x.message);
+    document.querySelector(".alert").style.display="block";
+    document.querySelector(".alert").textContent="no city found";
+
     }
     ;
 
